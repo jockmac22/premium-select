@@ -1,0 +1,178 @@
+/* COLOR AND SHAPE VARIABLES */
+/* SIZING AND POSITION VARIABLES */
+/* FONT VARIABLES */
+/* Olive Theme */
+div.premiumSelect {
+  /* This is the container of the new select element */
+  height: 34px;
+  display: inline-block;
+  min-width: 200px;
+  position: relative;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+div.premiumSelect .selectBox {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* Font settings */
+
+  font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 13px;
+  line-height: 34px;
+  color: #666666;
+  text-align: center;
+  text-shadow: 1px 1px 0 #EEEEEE;
+  /* Using CSS3 multiple backgrounds and a fallback */
+
+  border: 1px solid #cccccc;
+  background: #fafafa;
+  cursor: pointer;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+div.premiumSelect .selectBox:hover,
+div.premiumSelect .selectBox.expanded {
+  color: #2c5667;
+  text-shadow: 1px 1px 0 #9bc2d0;
+}
+div.premiumSelect .dropDown {
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  position: absolute;
+  top: 24px;
+  left: 0;
+  width: 100%;
+  border: 1px solid #cccccc;
+  list-style: none;
+  padding: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-box-shadow: 0 4px 4px 0 #cccccc;
+  -webkit-box-shadow: 0 4px 4px 0 #cccccc;
+  box-shadow: 0 4px 4px 0 #cccccc;
+  z-index: 10000;
+}
+div.premiumSelect li {
+  height: 45px;
+  cursor: pointer;
+  position: relative;
+  list-style: none;
+  background: #fafafa;
+  border-bottom: 1px solid #cccccc;
+}
+div.premiumSelect li.first {
+  border-top-left-radius: 6px;
+  -moz-border-top-left-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-top-right-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+}
+div.premiumSelect li.last {
+  border-bottom-left-radius: 6px;
+  -moz-border-bottom-left-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  -moz-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+}
+div.premiumSelect li:hover {
+  background: #f0f0f0;
+}
+div.premiumSelect li img {
+  display: block;
+  height: 80%;
+  overflow: hidden;
+  margin: 1% 10px 1% 1%;
+  position: absolute;
+}
+div.premiumSelect li span {
+  display: block;
+  clear: both;
+  /* 
+            Additional line formatting can be added here, or in a separate
+            theme definition.
+            */
+
+}
+div.premiumSelect li span.line-1 {
+  padding-top: 5px;
+  font-weight: bold;
+  color: #000;
+}
+div.premiumSelect li span.line-2 {
+  font-weight: normal;
+  color: #999;
+  font-size: 70%;
+}
+div.premiumSelect li span.has-icon {
+  margin-left: 60px;
+}
+div.premiumSelect.olive {
+  height: 25px;
+  min-width: 200px;
+  width: 130px;
+}
+div.premiumSelect.olive .selectBox {
+  border: 1px solid #b9b9b9;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  line-height: 25px;
+  text-align: left;
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #666666;
+  background-image: url(../img/olive-select-arrows.png);
+  background-position: top right;
+  background-repeat: no-repeat;
+}
+div.premiumSelect.olive .dropDown {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background: #f5f5f5;
+  width: 110%;
+}
+div.premiumSelect.olive li {
+  height: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #666666;
+  padding: 0 5px;
+}
+div.premiumSelect.olive li.first {
+  border-top-left-radius: 2px;
+  -moz-border-top-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  -moz-border-top-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+}
+div.premiumSelect.olive li.last {
+  border-bottom-left-radius: 2px;
+  -moz-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+}
+div.premiumSelect.olive li:hover {
+  background: #dedede;
+}
+div.premiumSelect.olive li span.line-1 {
+  padding-top: 5px;
+  font-weight: bold;
+  color: #000;
+}
+div.premiumSelect.olive li span.line-2 {
+  font-weight: normal;
+  color: #999;
+  font-size: 80%;
+}

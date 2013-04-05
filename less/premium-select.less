@@ -1,0 +1,175 @@
+@import "variables.less";
+@import "mixins.less";
+
+div.premiumSelect {
+    /* This is the container of the new select element */	
+    height:         @pS-selectHeight;
+    display:        inline-block;
+    min-width:      200px;
+    position:       relative;
+
+    .border-radius(@pS-borderRadius);
+
+    .selectBox {
+        position:       absolute;
+
+        height:         100%;
+        width:          100%; 
+
+        /* Font settings */
+        font:           @pS-font;
+        font-size:      @pS-fontSize;
+        line-height:    @pS-fontLineHeight;
+        color:          @pS-fontColor;
+        text-align:     center;
+        text-shadow:    1px 1px 0 #EEEEEE;
+
+        /* Using CSS3 multiple backgrounds and a fallback */
+
+        border:         @pS-border;
+        background:     @pS-background;
+
+        cursor:pointer;
+
+        .border-radius(@pS-borderRadius);
+
+        &:hover,
+        &.expanded {
+            color:          #2c5667;
+            text-shadow:    1px 1px 0 #9bc2d0;
+        }
+    }
+
+    .dropDown {
+        .border-radius(6px);
+
+        position:       absolute;
+        top:            @pS-dropDownTopPosition;
+        left:           0;
+        width:          100%;
+        border:         @pS-border;
+        list-style:     none;
+        padding:        0;
+
+        .box-sizing(border-box);
+        .box-shadow(0, 4px, 4px, 0, #CCC);
+        z-index:        10000;
+    }
+
+    li {
+        height:         @pS-liHeight;
+        cursor:         pointer;
+        position:       relative;
+        list-style:     none;
+        background:     @pS-background;
+        border-bottom:  @pS-border;
+
+        &.first {
+            .border-radius-top(@pS-borderRadius);
+        }
+
+        &.last {
+            .border-radius-bottom(@pS-borderRadius);
+        }
+
+        &:hover {
+            background:     @pS-backgroundHover;
+        }
+
+        img {
+            display:        block;
+            height:         80%;
+            overflow:       hidden;
+            margin:         1% 10px 1% 1%;
+            position:       absolute;
+        }
+
+        span {
+            display:        block;
+            clear:          both;
+
+            &.line-1 {
+                padding-top:     5px;
+                font-weight:    bold;
+                color:          #000;
+            }
+
+            &.line-2 {
+                font-weight:    normal;
+                color:          #999;
+                font-size:      70%;
+            }
+
+            /* 
+            Additional line formatting can be added here, or in a separate
+            theme definition.
+            */
+            &.has-icon {
+                margin-left:    @pS-imageMargin;
+            }
+        }
+
+    }
+
+    &.olive {
+        height:         @olive-selectHeight;
+        min-width:      200px;
+        width:          130px;
+
+        .selectBox {
+            border:         @olive-border;
+            .border-radius(@olive-borderRadius);
+
+            line-height:    @olive-selectHeight;
+            text-align:     left;
+            padding-left:   10px;
+            font-family:    @olive-font;
+            font-size:      @olive-fontSize;
+            color:          @olive-fontColor;
+
+            background-image: url(../img/olive-select-arrows.png);
+            background-position: top right;
+            background-repeat: no-repeat;
+        }
+
+        .dropDown {
+            .border-radius(@olive-borderRadius);
+            background:     @olive-background;
+            width:          110%;
+        }
+
+        li {
+            height:         @olive-liHeight;
+            font-family:    @olive-font;
+            font-size:      @olive-fontSize;
+            color:          @olive-fontColor;
+            padding:        0 5px;
+   
+            &.first {
+                .border-radius-top(@olive-borderRadius);
+            }
+
+            &.last {
+                .border-radius-bottom(@olive-borderRadius);
+            }
+
+            &:hover {
+                background:     @olive-hoverBackground;
+            }
+
+            span {
+                &.line-1 {
+                    padding-top:     5px;
+                    font-weight:    bold;
+                    color:          #000;
+                }
+
+                &.line-2 {
+                    font-weight:    normal;
+                    color:          #999;
+                    font-size:      80%;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Making Better Select Elements with jQuery and CSS3 | Tutorialzine Demo</title>
+
+<link rel="stylesheet" type="text/css" href="css/premium-select.css" />
+
+</head>
+<body>
+
+<div id="page">
+    <h1>Premium Select</h1>
+
+    <form method="post" action="">
+        
+        <h3>Default Theme</h3>
+        <!-- We are going to use jQuery to hide the select element and replace it -->
+        <select name="default" class="premiumSelect" data-has-icon="1" data-width="250px">
+            <option value="0" selected="selected" data-skip="1">Choose Your Product</option>
+            <option value="1" data-icon="img/products/iphone.png" data-line-1="iPhone 5" data-line-2="Loving it is easy!">iPhone 4</option>
+            <option value="2" data-icon="img/products/ipod.png" data-line-1="iPod" data-line-2="Play music and more!">iPod</option>
+            <option value="3" data-icon="img/products/air.png" data-line-1="Macbook Air (out of stock)" data-line-2="Thin, fast, powerful!">MacBook Air</option>
+            <option value="4" data-icon="img/products/imac.png" data-line-1="iMac" data-line-2="Performance and design at the edge.">iMac</option>
+        </select>
+        
+        <h3>Olive Theme</h3>
+        <select name="olive-theme" class="premiumSelect" data-theme="olive" data-width="140px">
+            <option value="0" data-line-1="All Locations" selected="selected">All Locations</option>
+            <option value="1" data-line-1="Starbucks" data-line-2="10254 Coors Blvd Byp NW">Starbucks #1</option>
+            <option value="2" data-line-1="Starbucks" data-line-2="5501 Montgomery Blvd NE">Starbucks #2</option>
+            <option value="3" data-line-1="Starbucks" data-line-2="201 La Posada Rd">Starbucks #3</option>
+            <option value="4" data-line-1="Starbucks" data-line-2="9821 Montgomery Blvd NE">Starbucks #4</option>
+        </select>
+        
+    </form>
+</div>
+
+<!-- Feel free to remove this footer -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+<script src="js/premium-select-0.1b.js"></script>
+
+</body>
+</html>
