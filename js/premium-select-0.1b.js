@@ -50,11 +50,15 @@ $.premiumselect = {
         if (list_width){ dropDown.attr('style', 'width: ' + list_width); }
 
         var selectBox = container.find('.selectBox');
+        selectBox.attr('class', 'selectBox ' + select.attr('class'));
+        selectBox.removeClass('premiumSelect');
 
-        select.find('option').each(function(i){
+        select.find('option').each(function(){
             var option = $(this);
+            var disabled = (option.data('disabled') === 1);
+            var clickable = option.data('prevent-click') !== 1;
 
-            if(i===select.attr('selectedIndex')){
+            if(select.val() === option.val()){
                 selectBox.html(option.text());
             }
 
@@ -93,14 +97,17 @@ $.premiumselect = {
             var dto = option[0];
             var dtf = select.find('option[data-skip!=1]')[0];
             var dtl = select.find('option[data-skip!=1]:last')[0];
-            var liClass = dto === dtf ? 'first' :
-                            (dto === dtl ? 'last' : null);
+            var liFirstLast = dto === dtf ? ' first' :
+                            (dto === dtl ? ' last' : null);
             var liActive = option.attr('selected') ? ' active' : null;
+            var liDisabled = disabled ? ' disabled' : null;
+            var liClass = option.attr('class') + ' ' + liFirstLast + liActive +
+                    liDisabled;
 
-            var li = $('<li>',{
-                html        : html,
-                className   : liClass + liActive
-            });
+            var li = $('<li>');
+            li.attr('class', liClass);
+            li.removeClass('premiumSelect');
+            li.html(html);
 
             // Store some references in the LI for use in the click event. This
             // will allow the click event function to operate independently of
@@ -108,40 +115,43 @@ $.premiumselect = {
             li.data('select', select);
             li.data('option', option);
 
-            // Wireup the LI click event.
-            li.click(function(evt){
-                evt.preventDefault();
+            // Wireup the LI click event, if the item is not disabled and clicks
+            // aren't prevented.
+            if (!disabled && clickable){
+                li.click(function(evt){
+                    evt.preventDefault();
 
-                var $this = $(this);
-                var selectBox = $.premiumselect.getSelectBox($this);
-                var select = $this.data('select');
-                var option = $this.data('option');
-                var dropDown = $.premiumselect.getDropDown($this);
+                    var $this = $(this);
+                    var selectBox = $.premiumselect.getSelectBox($this);
+                    var select = $this.data('select');
+                    var option = $this.data('option');
+                    var dropDown = $.premiumselect.getDropDown($this);
 
-                selectBox.html(option.text());
-                dropDown.trigger('hide');
+                    selectBox.html(option.text());
+                    dropDown.trigger('hide');
 
-                // When a click occurs, we are also reflecting
-                // the change on the original select element:
-                select.val(option.val());
+                    // When a click occurs, we are also reflecting
+                    // the change on the original select element:
+                    select.val(option.val());
 
-                var ul = $this.closest('ul');
-                var oVal = ul.data('val');
+                    var ul = $this.closest('ul');
+                    var oVal = ul.data('val');
 
-                // Adjust the selected item in the list.
-                ul.children().removeClass('active');
-                $this.addClass('active');
+                    // Adjust the selected item in the list.
+                    ul.children().removeClass('active');
+                    $this.addClass('active');
 
-                // Update the current value.
-                ul.data('val', option.val());
+                    // Update the current value.
+                    ul.data('val', option.val());
 
-                // Fire the click event
-                select.trigger('click');
-                // Fire the change event if this is a changed value.
-                if (oVal !== option.val()){ select.trigger('change'); }
+                    // Fire the click event
+                    select.trigger('click');
+                    // Fire the change event if this is a changed value.
+                    if (oVal !== option.val()){ select.trigger('change'); }
 
-                return false;
-            });
+                    return false;
+                });
+            }
 
             // Add the LI to the dropDown list.
             dropDown.append(li);

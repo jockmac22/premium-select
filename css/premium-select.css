@@ -13,6 +13,8 @@ div.premiumSelect {
   -webkit-border-radius: 3px;
 }
 div.premiumSelect .selectBox {
+  white-space: nowrap;
+  overflow: hidden;
   position: absolute;
   height: 100%;
   width: 100%;
