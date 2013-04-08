@@ -5,152 +5,35 @@
 
 body{
 	color:#333;
-	background-color:#EEEEEE;
+	background-color:#F0F0F0;
 	font:15px Calibri,Arial,sans-serif;
 }
 
 h1{
 	font-weight:normal;
 	overflow:hidden;
-	width:230px;
+	width:500px;
 	height:36px;
-    margin: 50px auto 10px auto;
+        margin: 50px auto 10px auto;
+        border-bottom: 1px solid #999;
+}
+
+h3{
+        margin-top:20px;
+        
 }
 
 form{
 	margin:20px auto;
-	width:200px;
+	width:500px;
 }
 
-div.premiumSelect{
-	
-	/* This is the container of the new select element */
-	
-	height:34px;
-	display:inline-block;
-	min-width:200px;
-	position:relative;
-	
-    background: #FAFAFA;
+.footer{
+        text-align:center;
+        margin:50px auto;
+        width:500px;
+        color: #999;
     
-    -moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-    border: 1px solid #CCC;
 }
 
-div.premiumSelect .selectBox{
-	position:absolute;
-	
-	height:100%;
-	width:100%;
-	
-	/* Font settings */
-	
-	font:13px/34px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	text-align:center;
-	text-shadow:1px 1px 0 #EEEEEE;
-	color:#666666;
-
-	/* Using CSS3 multiple backgrounds and a fallback */
-	
-    background: #FAFAFA;
-    
-	cursor:pointer;
-	
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-}
-
-div.premiumSelect .selectBox:hover,
-div.premiumSelect .selectBox.expanded{
-	color:#2c5667;
-	text-shadow:1px 1px 0 #9bc2d0;
-}
-
-div.premiumSelect .dropDown{
-    border-radius: 6px;
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
-	position:absolute;
-	top:40px;
-	left:0;
-	width:100%;
-	border:1px solid #EEE;
-	list-style:none;
-	
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-	
-	-moz-box-shadow:0 4px 4px #CCC;
-	-webkit-box-shadow:0 4px 4px #CCC;
-	box-shadow:0 4px 4px #CCC;
-}
-
-
-div.premiumSelect li{
-	height:45px;
-	cursor:pointer;
-	position:relative;
-	
-	/* Again, using CSS3 multiple backgrounds with a fallback */
-	
-	background: #FAFAFA;
-    border-bottom: 1px solid #CCC;
-}
-
-div.premiumSelect li.first{
-    border-top-left-radius: 3px;
-    -moz-border-top-left-radius: 3px;
-    -webkit-border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    -moz-border-top-right-radius: 3px;
-    -webkit-border-top-right-radius: 3px;
-}
-
-div.premiumSelect li.last{
-    border-bottom-left-radius: 3px;
-    -moz-border-bottom-left-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-    -moz-border-bottom-right-radius: 3px;
-    -webkit-border-bottom-right-radius: 3px;
-    border-bottom: none;
-}
-
-
-div.premiumSelect li:hover{
-	background-position: 50% -256px, 0 -85px, 0 0;
-}
-
-div.premiumSelect li span{
-	diplay: block;
-    clear: both;
-}
-
-div.premiumSelect li span.line-1{
-    font-weight:    bold;
-    color:          #000;
-}
-
-div.premiumSelect li span.line-2{
-    font-weight:    normal;
-    color:          #999;
-}
-
-
-div.premiumSelect li i{
-	color:#999999;
-	display:block;
-	font-size:12px;
-}
-
-div.premiumSelect li img{
-    float: left;
-    display: block;
-    height: 80%;
-    margin: 1% 10px 1% 1%;
-}
 

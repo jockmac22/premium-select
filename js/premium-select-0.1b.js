@@ -2,7 +2,7 @@
  * Premium Select v0.1 Beta
  * 
  * @Author Jocko MacGregor
- * @Version 0.1b
+ * @Version 0.1.2b
  * 
  * A jQuery plugin for custom styling your select drop downs.
  * 
@@ -31,7 +31,8 @@ $.premiumselect = {
         // Build some DOM elements to represent the select drop-down.
         var id;
         var has_icon = (select.data('has-icon') === 1);
-        var select_width = select.data('width');
+        var select_width = select.data('select-width');
+        var list_width = select.data('list-width');
         console.info(select.data('has-icon'));
         console.info(has_icon);
         var theme = select.data('theme');
@@ -44,7 +45,11 @@ $.premiumselect = {
             html        : '<div class="selectBox"></div>'
         });
 
-        var dropDown = $('<ul>',{className:'dropDown'});
+        var dropDown = $('<ul>',{
+            className   :'dropDown',
+            style       : list_width ? 'width: ' + list_width : null
+        });
+
         var selectBox = container.find('.selectBox');
 
         select.find('option').each(function(i){
@@ -61,7 +66,7 @@ $.premiumselect = {
             }
 
             // Build the HTML content for the select option.
-            var html="",icon,line=1,lineText,lt;
+            var html="",icon,line=1,lineText,lt,iconClass;
 
             if (has_icon){
                 html += (icon=option.data('icon')) ?
@@ -71,10 +76,17 @@ $.premiumselect = {
             line = 1;
             lineText = (lt=option.data('line-' + line)) ? lt : null;
             while (lineText) {
-                var iconClass = has_icon ? " has-icon" : '';
+                iconClass = has_icon ? " has-icon" : '';
                 html += '<span class="line-' + line + iconClass + '">' + lineText + '</span>';
                 line++;
                 lineText = (lt=option.data('line-' + line)) ? lt : null;
+            }
+
+            // Check to see if we found any lines, if not, apply the option text
+            // as a default line 1.
+            if (!lineText && line === 1){
+                iconClass = has_icon ? " has-icon" : '';
+                html += '<span class="line-' + line + iconClass + '">' + option.text() + '</span>';
             }
 
             // Creating a dropdown item according to the
@@ -84,9 +96,11 @@ $.premiumselect = {
             var dtl = select.find('option[data-skip!=1]:last')[0];
             var liClass = dto === dtf ? 'first' :
                             (dto === dtl ? 'last' : null);
+            var liActive = option.attr('selected') ? ' active' : null;
+
             var li = $('<li>',{
                 html        : html,
-                className   : liClass
+                className   : liClass + liActive
             });
 
             // Store some references in the LI for use in the click event. This
@@ -111,6 +125,9 @@ $.premiumselect = {
                 // When a click occurs, we are also reflecting
                 // the change on the original select element:
                 select.val(option.val());
+
+                $this.parent().children().removeClass('active');
+                $this.addClass('active');
 
                 return false;
             });

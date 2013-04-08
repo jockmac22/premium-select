@@ -8,9 +8,9 @@ div.premiumSelect {
   display: inline-block;
   min-width: 200px;
   position: relative;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 div.premiumSelect .selectBox {
   position: absolute;
@@ -18,7 +18,7 @@ div.premiumSelect .selectBox {
   width: 100%;
   /* Font settings */
 
-  font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 13px;
   line-height: 34px;
   color: #666666;
@@ -29,9 +29,9 @@ div.premiumSelect .selectBox {
   border: 1px solid #cccccc;
   background: #fafafa;
   cursor: pointer;
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 div.premiumSelect .selectBox:hover,
 div.premiumSelect .selectBox.expanded {
@@ -39,11 +39,13 @@ div.premiumSelect .selectBox.expanded {
   text-shadow: 1px 1px 0 #9bc2d0;
 }
 div.premiumSelect .dropDown {
-  border-radius: 6px;
-  -moz-border-radius: 6px;
-  -webkit-border-radius: 6px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 13px;
   position: absolute;
-  top: 24px;
+  top: 39px;
   left: 0;
   width: 100%;
   border: 1px solid #cccccc;
@@ -64,25 +66,35 @@ div.premiumSelect li {
   list-style: none;
   background: #fafafa;
   border-bottom: 1px solid #cccccc;
+  padding: 0 5px;
 }
 div.premiumSelect li.first {
-  border-top-left-radius: 6px;
-  -moz-border-top-left-radius: 6px;
-  -webkit-border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  -moz-border-top-right-radius: 6px;
-  -webkit-border-top-right-radius: 6px;
+  border-top-left-radius: 3px;
+  -moz-border-top-left-radius: 3px;
+  -webkit-border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  -moz-border-top-right-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
 }
 div.premiumSelect li.last {
-  border-bottom-left-radius: 6px;
-  -moz-border-bottom-left-radius: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  -moz-border-bottom-right-radius: 6px;
-  -webkit-border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  -moz-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
 }
 div.premiumSelect li:hover {
   background: #f0f0f0;
+}
+div.premiumSelect li.active {
+  background: #2c5667;
+}
+div.premiumSelect li.active span.line-1 {
+  color: #FEFEFE;
+}
+div.premiumSelect li.active span.line-2 {
+  color: #F0F0F0;
 }
 div.premiumSelect li img {
   display: block;
@@ -165,6 +177,9 @@ div.premiumSelect.olive li.last {
 }
 div.premiumSelect.olive li:hover {
   background: #dedede;
+}
+div.premiumSelect.olive li.active {
+  background: #d3dcc1;
 }
 div.premiumSelect.olive li span.line-1 {
   padding-top: 5px;

@@ -17,7 +17,7 @@ div.premiumSelect {
         width:          100%; 
 
         /* Font settings */
-        font:           @pS-font;
+        font-family:    @pS-font;
         font-size:      @pS-fontSize;
         line-height:    @pS-fontLineHeight;
         color:          @pS-fontColor;
@@ -41,8 +41,10 @@ div.premiumSelect {
     }
 
     .dropDown {
-        .border-radius(6px);
+        .border-radius(@pS-borderRadius);
 
+        font-family:    @pS-font;
+        font-size:      @pS-fontSize;
         position:       absolute;
         top:            @pS-dropDownTopPosition;
         left:           0;
@@ -63,6 +65,7 @@ div.premiumSelect {
         list-style:     none;
         background:     @pS-background;
         border-bottom:  @pS-border;
+        padding:        0 5px;
 
         &.first {
             .border-radius-top(@pS-borderRadius);
@@ -74,6 +77,20 @@ div.premiumSelect {
 
         &:hover {
             background:     @pS-backgroundHover;
+        }
+
+        &.active {
+            background:     @pS-backgroundActive;
+
+            span {
+                &.line-1 {
+                    color:      #FEFEFE;
+                }
+                
+                &.line-2 {
+                    color:      #F0F0F0;
+                }
+            }   
         }
 
         img {
@@ -155,6 +172,10 @@ div.premiumSelect {
 
             &:hover {
                 background:     @olive-hoverBackground;
+            }
+
+            &.active {
+                background:     @olive-activeBackground;     
             }
 
             span {

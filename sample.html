@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Making Better Select Elements with jQuery and CSS3 | Tutorialzine Demo</title>
 
+<link rel="stylesheet" type="text/css" href="css/styles.css" />
 <link rel="stylesheet" type="text/css" href="css/premium-select.css" />
 
 </head>
@@ -14,9 +15,36 @@
 
     <form method="post" action="">
         
-        <h3>Default Theme</h3>
+        <h3>Simplest Approach</h3>
         <!-- We are going to use jQuery to hide the select element and replace it -->
-        <select name="default" class="premiumSelect" data-has-icon="1" data-width="250px">
+        <select class="premiumSelect">
+            <option value="0" selected="selected">Choose an Option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </select>
+
+        <h3>Hide an Option</h3>
+        <select class="premiumSelect">
+            <option value="0" selected="selected" data-skip="1">Choose an Option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </select>        
+        
+        <h3>Icons Included</h3>
+        <select class="premiumSelect" data-has-icon="1">
+            <option value="0" selected="selected" data-skip="1">Choose Your Product</option>
+            <option value="1" data-icon="img/products/iphone.png">iPhone 4</option>
+            <option value="2" data-icon="img/products/ipod.png">iPod</option>
+            <option value="3" data-icon="img/products/air.png">MacBook Air</option>
+            <option value="4" data-icon="img/products/imac.png">iMac</option>
+        </select>
+        
+        <h3>Data Attributes</h3>
+        <select class="premiumSelect" data-has-icon="1" data-select-width="250px" data-list-width="300px">
             <option value="0" selected="selected" data-skip="1">Choose Your Product</option>
             <option value="1" data-icon="img/products/iphone.png" data-line-1="iPhone 5" data-line-2="Loving it is easy!">iPhone 4</option>
             <option value="2" data-icon="img/products/ipod.png" data-line-1="iPod" data-line-2="Play music and more!">iPod</option>
@@ -24,8 +52,9 @@
             <option value="4" data-icon="img/products/imac.png" data-line-1="iMac" data-line-2="Performance and design at the edge.">iMac</option>
         </select>
         
-        <h3>Olive Theme</h3>
-        <select name="olive-theme" class="premiumSelect" data-theme="olive" data-width="140px">
+        
+        <h3>Add a Theme: Olive</h3>
+        <select name="olive-theme" class="premiumSelect" data-theme="olive" data-select-width="140px" data-list-width="250px">
             <option value="0" data-line-1="All Locations" selected="selected">All Locations</option>
             <option value="1" data-line-1="Starbucks" data-line-2="10254 Coors Blvd Byp NW">Starbucks #1</option>
             <option value="2" data-line-1="Starbucks" data-line-2="5501 Montgomery Blvd NE">Starbucks #2</option>
@@ -37,6 +66,12 @@
 </div>
 
 <!-- Feel free to remove this footer -->
+<div class="footer">
+    
+    This work was created by Jocko MacGregor for Ballantine Digital Media, and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>.
+    <br />
+    <a rel="license" href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+</div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
 <script src="js/premium-select-0.1b.js"></script>
