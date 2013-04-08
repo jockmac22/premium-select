@@ -94,7 +94,7 @@ need to have icons.
 Read more about the 'has-icon' and 'icon' data parameters in the 'Data
 Parameters' section below.
 
-<pre>
+```html
 &lt;select class=&quot;premiumSelect&quot; data-has-icon=&quot;1&quot;&gt;
     &lt;option value=&quot;0&quot; selected=&quot;selected&quot; data-skip=&quot;1&quot;&gt;Choose Your Product&lt;/option&gt;
     &lt;option value=&quot;1&quot; data-icon=&quot;img/products/iphone.png&quot;&gt;iPhone 4&lt;/option&gt;
@@ -102,7 +102,7 @@ Parameters' section below.
     &lt;option value=&quot;3&quot; data-icon=&quot;img/products/air.png&quot;&gt;MacBook Air&lt;/option&gt;
     &lt;option value=&quot;4&quot; data-icon=&quot;img/products/imac.png&quot;&gt;iMac&lt;/option&gt;
 &lt;/select&gt;
-</pre>
+```
 
 Data Parameters
 ---------------
@@ -110,48 +110,47 @@ Data parameters are parameters that are added to the tags in the select object,
 and modify how the final select list is rendered.  Data parameters can be added
 to the select tag, or the option tags and modify each respectively.
 
-Select Tag Data Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+*Select Tag Data Parameters*:
 
-    *data-has-icon*
-    Turns on the icons in the drop down list, and provides the necessary CSS
-    class structure to indent the option text to accommodate for the icon.  This
-    parameter works in conjuction with the *data-icon* parameter which is used
-    in the option tags. 
-        *Value:* 1
 
-    *data-select-width*
-    Sets the width of the select box in the final display.
-        *Value:* a standard CSS measurement so must be appended with 'px', 'em', or 
-        any proper CSS measurement unit.
+*data-has-icon*
+Turns on the icons in the drop down list, and provides the necessary CSS
+class structure to indent the option text to accommodate for the icon.  This
+parameter works in conjuction with the *data-icon* parameter which is used
+in the option tags. 
+*Value:* 1
 
-    *data-list-width*
-    Sets the width of the select list in the final display.
-        *Value:* a standard CSS measurement so must be appended with 'px', 'em', or 
-        any proper CSS measurement unit.
+*data-select-width*
+Sets the width of the select box in the final display.
+*Value:* a standard CSS measurement so must be appended with 'px', 'em', or 
+any proper CSS measurement unit.
 
-    *data-theme*
-    Sets the theme to use for the select lists final display.
-    *Value:* A string containing the name of the theme that coordinates with any
-    predefined theme names defined in the CSS file.
+*data-list-width*
+Sets the width of the select list in the final display.
+*Value:* a standard CSS measurement so must be appended with 'px', 'em', or 
+any proper CSS measurement unit.
 
-Option Tag Data Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+*data-theme*
+Sets the theme to use for the select lists final display.
+*Value:* A string containing the name of the theme that coordinates with any
+predefined theme names defined in the CSS file.
+
+*Option Tag Data Parameters*:
     
-    *data-skip*
-    Instructs the renderer not to include the option in the final display.
-        *Value:* 1
+*data-skip*
+Instructs the renderer not to include the option in the final display.
+*Value:* 1
 
-    *data-icon*
-    Identifies the path of the icon image file that will be rendered in the
-    final display.  The *data-has-icon* option must be set on the Select tag
-    in order for the icon to be display.
-        *Value:* A string containing the path to the icon image.
+*data-icon*
+Identifies the path of the icon image file that will be rendered in the
+final display.  The *data-has-icon* option must be set on the Select tag
+in order for the icon to be display.
+*Value:* A string containing the path to the icon image.
 
-    *data-line-n*
-    There can be as many of these parameters as are handled by the specified 
-    theme (The default theme handles 2).  The n value should be replaced with
-    the line number (1,2,3, etc.), and the parameters should be sequential
-    without skipping any numbers.  Each line in rendered in order in the final
-    display, with a class identifying the line included.
-        *Value:* A string containing the value for the line number given.
+*data-line-n*
+There can be as many of these parameters as are handled by the specified 
+theme (The default theme handles 2).  The n value should be replaced with
+the line number (1,2,3, etc.), and the parameters should be sequential
+without skipping any numbers.  Each line in rendered in order in the final
+display, with a class identifying the line included.
+*Value:* A string containing the value for the line number given.
