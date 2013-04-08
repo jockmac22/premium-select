@@ -48,7 +48,13 @@ No special DOM structures are required, just setup your select list, and give
 it the right class name, and voila, its ready to go:
 
 <pre>
-        &lt;select class=&quot;premiumSelect&quot;&gt;<br/>            &lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;Choose an Option&lt;/option&gt;<br/>            &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;<br/>            &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;<br/>            &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;<br/>            &lt;option value=&quot;4&quot;&gt;Option 4&lt;/option&gt;<br/>        &lt;/select&gt;
+&lt;select class=&quot;premiumSelect&quot;&gt;
+    &lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;Choose an Option&lt;/option&gt;
+    &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
+    &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
+    &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
+    &lt;option value=&quot;4&quot;&gt;Option 4&lt;/option&gt;
+&lt;/select&gt;
 </pre>
 
 
