@@ -36,14 +36,14 @@ to render out and function properly.
 
 Remember to set your paths to match your environment.
 
-<pre>
-// Javascript files (jQuery 1.4.3 or higher is required)
-&lt;script src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;js/premium-select-0.1b.js&quot;&gt;&lt;/script&gt;
+```html
+<!-- Javascript files (jQuery 1.4.3 or higher is required) -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>;
+<script type="text/javascript" src=&quot;js/premium-select-0.1b.js"></script>;
 
-// CSS File
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/premium-select.css&quot; /&gt;
-</pre>
+<!-- CSS File -->
+<link rel="stylesheet" href="css/premium-select.css" >;
+```
 
 Simplest Approach
 -----------------
@@ -54,15 +54,15 @@ having to do any actual javascript code.
 No special DOM structures are required, just setup your select list, and give
 it the right class name, and voila, its ready to go:
 
-<pre>
-&lt;select class=&quot;premiumSelect&quot;&gt;
-    &lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;Choose an Option&lt;/option&gt;
-    &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
-    &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
-    &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
-    &lt;option value=&quot;4&quot;&gt;Option 4&lt;/option&gt;
-&lt;/select&gt;
-</pre>
+```html
+<select class="premiumSelect">
+    <option value="0" selected="selected">Choose an Option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+</select>
+```
 
 
 Hide an Option
@@ -74,15 +74,15 @@ the option you want hidden.
 Read more about the 'skip' data parameter in the 'Data Parameters' section 
 below.
 
-<pre>
-&lt;select class=&quot;premiumSelect&quot;&gt;
-    &lt;option value=&quot;0&quot; selected=&quot;selected&quot; data-skip=&quot;1&quot;&gt;Choose an Option&lt;/option&gt;
-    &lt;option value=&quot;1&quot;&gt;Option 1&lt;/option&gt;
-    &lt;option value=&quot;2&quot;&gt;Option 2&lt;/option&gt;
-    &lt;option value=&quot;3&quot;&gt;Option 3&lt;/option&gt;
-    &lt;option value=&quot;4&quot;&gt;Option 4&lt;/option&gt;
-&lt;/select&gt;
-</pre>
+```html
+<select class="premiumSelect">
+    <option value="0" selected="selected" data-skip="1">Choose an Option</option>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+    <option value="4">Option 4</option>
+</select>  
+```
 
 
 Icons Included
@@ -95,13 +95,13 @@ Read more about the 'has-icon' and 'icon' data parameters in the 'Data
 Parameters' section below.
 
 ```html
-&lt;select class=&quot;premiumSelect&quot; data-has-icon=&quot;1&quot;&gt;
-    &lt;option value=&quot;0&quot; selected=&quot;selected&quot; data-skip=&quot;1&quot;&gt;Choose Your Product&lt;/option&gt;
-    &lt;option value=&quot;1&quot; data-icon=&quot;img/products/iphone.png&quot;&gt;iPhone 4&lt;/option&gt;
-    &lt;option value=&quot;2&quot; data-icon=&quot;img/products/ipod.png&quot;&gt;iPod&lt;/option&gt;
-    &lt;option value=&quot;3&quot; data-icon=&quot;img/products/air.png&quot;&gt;MacBook Air&lt;/option&gt;
-    &lt;option value=&quot;4&quot; data-icon=&quot;img/products/imac.png&quot;&gt;iMac&lt;/option&gt;
-&lt;/select&gt;
+<select class="premiumSelect" data-has-icon="1">
+    <option value="0" selected="selected" data-skip="1">Choose Your Product</option>
+    <option value="1" data-icon="img/products/iphone.png">iPhone 4</option>
+    <option value="2" data-icon="img/products/ipod.png">iPod</option>
+    <option value="3" data-icon="img/products/air.png">MacBook Air</option>
+    <option value="4" data-icon="img/products/imac.png">iMac</option>
+</select>
 ```
 
 Data Parameters
