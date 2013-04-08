@@ -37,18 +37,17 @@ $.premiumselect = {
         console.info(has_icon);
         var theme = select.data('theme');
 
-        var container = $('<div>',{
-            width	: select.outerWidth(),
-            id          : (id=select.attr('id')) ? id : null,
-            className	: 'premiumSelect' + (theme ? ' ' + theme : ''),
-            style       : select_width ? 'min-width: ' + select_width : null,
-            html        : '<div class="selectBox"></div>'
-        });
+        var container = $('<div>');
+        container.attr('width', select.outerWidth());
+        container.attr('id', (id=select.attr('id')) ? id : null);
+        container.addClass('premiumSelect');
+        if (theme){ container.addClass(theme); }
+        if (select_width){ container.attr('style', 'min-width: ' + select_width); }
+        container.html('<div class="selectBox"></div>');
 
-        var dropDown = $('<ul>',{
-            className   :'dropDown',
-            style       : list_width ? 'width: ' + list_width : null
-        });
+        var dropDown = $('<ul>');
+        dropDown.addClass('dropDown');
+        if (list_width){ dropDown.attr('style', 'width: ' + list_width); }
 
         var selectBox = container.find('.selectBox');
 
@@ -126,8 +125,20 @@ $.premiumselect = {
                 // the change on the original select element:
                 select.val(option.val());
 
-                $this.parent().children().removeClass('active');
+                var ul = $this.closest('ul');
+                var oVal = ul.data('val');
+
+                // Adjust the selected item in the list.
+                ul.children().removeClass('active');
                 $this.addClass('active');
+
+                // Update the current value.
+                ul.data('val', option.val());
+
+                // Fire the click event
+                select.trigger('click');
+                // Fire the change event if this is a changed value.
+                if (oVal !== option.val()){ select.trigger('change'); }
 
                 return false;
             });
