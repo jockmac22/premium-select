@@ -37,9 +37,9 @@ having to do any actual javascript code.
 Remember to set your paths to match your environment.
 
 <pre>
-<script type="text/javascript" src="js/premium-select-0.1b.js"></script>
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/premium-select-0.1b.js&quot;&gt;&lt;/script&gt;
 
-<link rel="stylesheet" href="css/premium-select.css" />
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/premium-select.css&quot; /&gt;
 </pre>
 
 2) Setup a select DOM object.
