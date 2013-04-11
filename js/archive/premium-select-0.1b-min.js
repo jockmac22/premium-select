@@ -1,8 +1,8 @@
 /*
- * Premium Select v0.1 Beta
+ * Premium Select v0.1.3 Beta
  * 
- * @Author Jocko MacGregor
- * @Version 0.1.2b
+ * @Author Jocko MacGregor for Ballantine Digital Media (http://www.bdmedia.com)
+ * @Version 0.1.3b
  * 
  * A jQuery plugin for custom styling your select drop downs.
  * 

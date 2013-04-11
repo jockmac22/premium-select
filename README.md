@@ -35,7 +35,7 @@ Remember to set your paths to match your environment.
 ```html
 <!-- Javascript files (jQuery 1.4.3 or higher is required) -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>;
-<script type="text/javascript" src=&quot;js/premium-select-0.1b.js"></script>;
+<script type="text/javascript" src=&quot;js/premium-select-0.1.3b.js"></script>;
 
 <!-- CSS File -->
 <link rel="stylesheet" href="css/premium-select.css" >;
