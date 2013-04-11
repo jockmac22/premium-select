@@ -4,7 +4,7 @@ Premium Select
 A jQuery plugin for custom styling your select drop downs.
 
 # Authors and Attributions
-Premium Select was written by Jocko MacGregor for [Ballantine Digital Media](http://blog.buzztown.com/).
+Premium Select was written by Jocko MacGregor for [Ballantine Digital Media](http://www.bdmedia.com/).
 
 This code is based on the code presented in a tutorial by Martin Angelov
 for tutorialzine.com.  [Read the tutorial](http://tutorialzine.com/2010/11/better-select-jquery-css3/).
