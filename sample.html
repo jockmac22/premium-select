@@ -63,6 +63,41 @@
         </select>
         
     </form>
+    
+    <h1>Initialization and Methods</h1>
+    <form method="POST" action="">
+        <h3>Manual Initialization</h3>
+        <select id="manualInitialization">
+            <option value="0" selected="selected" data-skip="1">In the begining I'm not initialized</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </select>
+        <br />
+        <br />
+        <button id="engage">Engage!</button>
+    </form>
+
+    <form method="POST" action="">
+        <h3>Automation</h3>
+
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle">Toggle</button>
+        <br />
+        <br />
+        
+        
+        <select id="automation" class="premiumSelect">
+            <option value="0" selected="selected" data-skip="1">I'm automated</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+            <option value="4">Option 4</option>
+        </select>
+    </form>
+
 </div>
 
 <!-- Feel free to remove this footer -->
@@ -74,7 +109,35 @@
 </div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
-<script src="js/premium-select-0.1b.js"></script>
-
+<script src="js/premium-select-0.1.3b.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('button#engage').click(function(evt){
+           evt.preventDefault();
+           $('select#manualInitialization').premiumSelect({
+               select_width: '300px',
+               list_width: '220px'
+           });
+       });
+       
+       $('button#show').click(function(evt){
+          evt.preventDefault();
+          evt.stopPropagation();
+          $('select#automation').premiumSelect('show');
+       });
+       
+       $('button#hide').click(function(evt){
+          evt.preventDefault();
+          evt.stopPropagation();
+          $('select#automation').premiumSelect('hide');
+       });
+       
+       $('button#toggle').click(function(evt){
+          evt.preventDefault();
+          evt.stopPropagation();
+          $('select#automation').premiumSelect('toggle');
+       });
+    });
+</script>
 </body>
 </html>
