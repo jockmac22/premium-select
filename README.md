@@ -207,4 +207,56 @@ display, with a class identifying the line included.
 *Value:* A string containing the value for the line number given.
 
 # Creating a Theme
-Coming soon, not quite there yet.
+Theming the Premium Select interface is pretty easy.  The basic idea is to add
+a subclass of the div.premiumSelect CSS class, that is named after the theme
+I'm creating.
+
+If I want to create the 'olive' theme, I would define a CSS class like so:
+```css
+div.premiumSelect.olive {}
+```
+
+Then through that class you can override the various elements of the display. 
+For instance if I want to change the background color of the selectBox I would
+define the following CSS
+```css
+div.premiumSelect.olive {}
+
+div.premiumSelect.olive .selectBox {
+    background-color: #0000FF;
+}
+```
+
+Here's a rough outline of the CSS structure for the Premium Select interface:
+```css
+/* Display wrapper */
+div.premiumSelect.theme_name {}
+
+/* Select Box */
+div.premiumSelect.theme_name .selectBox {}
+
+/* Drop Down */
+div.premiumSelect.theme_name .dropDown {}
+
+/* Drop Down List Item */
+div.premiumSelect.theme_name .dropDown li {}
+
+/* Drop Down List Item - First */
+div.premiumSelect.theme_name .dropDown li.first {}
+
+/* Drop Down List Item - Last */
+div.premiumSelect.theme_name .dropDown li.last {}
+
+/* Drop Down List Item - Hover */
+div.premiumSelect.theme_name .dropDown li:hover {}
+
+/* Drop Down List Item - Active */
+div.premiumSelect.theme_name .dropDown li.first {}
+
+/* Drop Down List Item Line n 
+
+    n = A line number starting at 1.  Add a CSS definition for each additional
+        line.
+*/
+div.premiumSelect.theme_name .dropDown li span.line-n {}
+```

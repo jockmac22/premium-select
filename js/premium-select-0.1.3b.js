@@ -1,8 +1,8 @@
 /*
- * Premium Select v0.1 Beta
+ * Premium Select v0.1.3 Beta
  * 
  * @Author Jocko MacGregor for Ballantine Digital Media (http://www.bdmedia.com)
- * @Version 0.1b
+ * @Version 0.1.3b
  * 
  * A jQuery plugin for custom styling your select drop downs.
  * 
@@ -14,28 +14,82 @@
 
 var console = console||{info:function(){}};
 
-$.fn.premiumSelect = function(){
+$.fn.premiumSelect = function(input){
     var selects = $(this).filter('select');
     selects.each(function(){
-       $.premiumselect.init($(this));
+        if (typeof(input) === 'string'){
+            $.premiumselect.execute($(this), input);
+        }else{
+            $.premiumselect.init($(this), input);
+        }
     });
 };
 
 
 $.premiumselect = {
-    init: function(select){
-        $.premiumselect.buildInterface(select);
+    init: function(select, opts){
+        var defaultOpts = {
+            has_icon: false,
+            select_width: null,
+            list_width: null,
+            theme: null
+        };
+
+        var dataOpts = $.premiumselect.extractDataAttributes(select);
+        opts = $.extend({}, defaultOpts, opts, dataOpts);
+
+        // Remove any existing interfaces
+        select.next().filter('div.premiumSelect').remove();
+
+        $.premiumselect.buildInterface(select, opts);
     },
 
-    buildInterface: function(select){
+    execute: function(select, command){
+        var dd = $.premiumselect.getDropDown(select);
+        switch(command){
+            case 'show':
+                dd.trigger('show');
+                break;
+            case 'hide':
+                dd.trigger('hide');
+                break;
+            case 'toggle':
+                dd.trigger('toggle');
+                break;
+            case 'destroy':
+                break;
+        }
+    },
+
+    // Create a JSON object containing the values extracted from the data
+    // attributes assigned in the DOM.   Values not present are not included
+    // in the object.
+    extractDataAttributes: function(select){
+        var data = {};
+        if (select.data('has-icon')){
+            data.has_icon = (select.data('has-icon') === 1);
+        }
+        if (select.data('select-width')){
+            data.select_width = select.data('select-width');
+        }
+        if (select.data('list-width')){
+            data.list_width = select.data('list-width');
+        }
+        if (select.data('theme')){
+            data.theme = select.data('theme');
+        }
+
+        return data;
+    },
+
+    // Generate the HTML interface for the select box and drop down list.
+    buildInterface: function(select, opts){
         // Build some DOM elements to represent the select drop-down.
         var id;
-        var has_icon = (select.data('has-icon') === 1);
-        var select_width = select.data('select-width');
-        var list_width = select.data('list-width');
-        console.info(select.data('has-icon'));
-        console.info(has_icon);
-        var theme = select.data('theme');
+        var has_icon = opts.has_icon;
+        var select_width = opts.select_width;
+        var list_width = opts.list_width;
+        var theme = opts.theme;
 
         var container = $('<div>');
         container.attr('width', select.outerWidth());
@@ -219,6 +273,10 @@ $.premiumselect = {
     // Get the drop down element of the current .premiumSelect DOM object. Can
     // take any element (el) within the .premiumSelect DOM container as a param.
     getDropDown: function(el){
+        if (el.filter('select').size() > 0){
+            el = el.next('.premiumSelect');
+        }
+
         return el.closest('.premiumSelect').find('.dropDown');
     }
 };
