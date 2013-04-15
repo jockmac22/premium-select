@@ -206,6 +206,117 @@ without skipping any numbers.  Each line in rendered in order in the final
 display, with a class identifying the line included.
 *Value:* A string containing the value for the line number given.
 
+# jQuery Intialization/Automation
+
+### Initialization
+Your implementation may require you to manually instantiate your Premium Select
+instance, or automate its interactions with other page elements.
+
+By removing the premiumSelect class from your select tag, the plugin will no 
+longer automatically initialize.   This leaves it up to you to initialize the
+Premium Select drop down.  
+
+Assuming we have the following select tag implemented on the page:
+```html
+<form method="POST" action="">
+    <h3>Manual Initialization</h3>
+    <select id="manualInitialization">
+        <option value="0" selected="selected" data-skip="1">In the begining I'm not initialized</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+    </select>
+    <br />
+    <br />
+    <button id="engage">Engage!</button>
+</form>
+```
+
+To initialialize this drop down you would implement code that is similar to the
+following:
+```javascript
+$(document).ready(function(){
+    $('button#engage').click(function(evt){
+        evt.preventDefault();
+        $('select#manualInitialization').premiumSelect({
+            select_width: '300px',
+            list_width: '220px'
+        });
+    });
+});
+```
+
+You can see that we've wired up the click behavior of the 'Engage' button so
+that it locates the select object and calls the .premiumSelect plugin method.
+This plugin method accepts a JSON object which can configure the default options
+for the drop down.  These options act as the base line defaults for implementing
+the drop down.  These options are overriden by values provided in the data
+attributes of the select tag.
+
+### Automation
+
+You can automate the drop down's behavior through other page elements by
+activating the available drop down methods. To activat a method, you call the
+premiumSelect method (as you did on initialization) and pass in the name of the
+method as a string. Like so:
+```javascript
+$('#someSelector').premiumSelect('hide');
+```
+There are three methods
+
+1. show - Shows the drop down for the Premium Select instance.
+2. hide - Hides the drop down for the Premium Select instance.
+3. toggle - Hides or shows the drop down for the Premium Select instance.
+
+For example, given the following HTML:
+```html
+<form method="POST" action="">
+    <h3>Automation</h3>
+
+    <button id="show">Show</button>
+    <button id="hide">Hide</button>
+    <button id="toggle">Toggle</button>
+    <br />
+    <br />
+
+
+    <select id="automation" class="premiumSelect">
+        <option value="0" selected="selected" data-skip="1">I'm automated</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+        <option value="4">Option 4</option>
+    </select>
+</form>
+```
+
+You could use the following javascript to have the buttons actuate the drop down
+selector:
+
+```javascript
+$(document).ready(function(){
+
+   $('button#show').click(function(evt){
+      evt.preventDefault();
+      evt.stopPropagation();
+      $('select#automation').premiumSelect('show');
+   });
+
+   $('button#hide').click(function(evt){
+      evt.preventDefault();
+      evt.stopPropagation();
+      $('select#automation').premiumSelect('hide');
+   });
+
+   $('button#toggle').click(function(evt){
+      evt.preventDefault();
+      evt.stopPropagation();
+      $('select#automation').premiumSelect('toggle');
+   });
+});
+```
+
 # Creating a Theme
 Theming the Premium Select interface is pretty easy.  The basic idea is to add
 a subclass of the div.premiumSelect CSS class, that is named after the theme
