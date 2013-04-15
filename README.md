@@ -251,7 +251,7 @@ div.premiumSelect.theme_name .dropDown li.last {}
 div.premiumSelect.theme_name .dropDown li:hover {}
 
 /* Drop Down List Item - Active */
-div.premiumSelect.theme_name .dropDown li.first {}
+div.premiumSelect.theme_name .dropDown li.active {}
 
 /* Drop Down List Item Line n 
 
