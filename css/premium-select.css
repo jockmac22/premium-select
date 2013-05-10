@@ -1,7 +1,6 @@
 /* COLOR AND SHAPE VARIABLES */
 /* SIZING AND POSITION VARIABLES */
 /* FONT VARIABLES */
-/* Olive Theme */
 div.premiumSelect {
   /* This is the container of the new select element */
   height: 34px;
@@ -127,6 +126,8 @@ div.premiumSelect li span.line-2 {
 div.premiumSelect li span.has-icon {
   margin-left: 60px;
 }
+/* Import Themes */
+/* Olive Theme */
 div.premiumSelect.olive {
   height: 25px;
   min-width: 200px;
@@ -189,6 +190,96 @@ div.premiumSelect.olive li span.line-1 {
   color: #000;
 }
 div.premiumSelect.olive li span.line-2 {
+  font-weight: normal;
+  color: #999;
+  font-size: 80%;
+}
+/* Olive Theme */
+div.premiumSelect.orange-click {
+  height: 18px;
+  min-width: 120px;
+  width: auto;
+}
+div.premiumSelect.orange-click .selectBox {
+  display: inline-block;
+  border: none;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  width: auto;
+  line-height: 18px;
+  text-align: left;
+  padding-left: 0;
+  padding-right: 18px;
+  padding-top: 4px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: Bold;
+  font-style: italic;
+  color: #e84f30;
+  background-color: transparent;
+  background-image: url(../img/orange-click-select-arrows.png);
+  background-position: right 6px;
+  background-repeat: no-repeat;
+  text-decoration: underline;
+}
+div.premiumSelect.orange-click .selectBox:hover,
+div.premiumSelect.orange-click .selectBox.expanded {
+  color: #e84f30;
+  text-shadow: none;
+  text-decoration: none;
+}
+div.premiumSelect.orange-click .dropDown {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background: transparent;
+  width: 110%;
+  top: 22px;
+}
+div.premiumSelect.orange-click li {
+  height: 35px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: #e84f30;
+  padding: 0 5px;
+}
+div.premiumSelect.orange-click li.first {
+  border-top-left-radius: 2px;
+  -moz-border-top-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  -moz-border-top-right-radius: 2px;
+  -webkit-border-top-right-radius: 2px;
+}
+div.premiumSelect.orange-click li.last {
+  border-bottom-left-radius: 2px;
+  -moz-border-bottom-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+}
+div.premiumSelect.orange-click li:hover {
+  background: #d3dcc1;
+  color: #4d4d4d;
+}
+div.premiumSelect.orange-click li.active {
+  background: #d3dcc1;
+  color: #4d4d4d;
+}
+div.premiumSelect.orange-click li.active span.line-1 {
+  color: #4d4d4d;
+}
+div.premiumSelect.orange-click li.active span.line-2 {
+  color: #4d4d4d;
+}
+div.premiumSelect.orange-click li span.line-1 {
+  padding-top: 5px;
+  font-weight: bold;
+  color: #000;
+}
+div.premiumSelect.orange-click li span.line-2 {
   font-weight: normal;
   color: #999;
   font-size: 80%;

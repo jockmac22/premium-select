@@ -176,6 +176,11 @@ Sets the theme to use for the select lists final display.
 *Value:* A string containing the name of the theme that coordinates with any
 predefined theme names defined in the CSS file.
 
+##### hover-activated
+Sets triggers so that the drop down is shown when the mouse is
+hovering over the selectBox or dropdown and hidden when the mouse leaves.
+*Value:* 1 to activate, anything else to deactivate
+
 ### Option Tag Data Attributes:
     
 ##### data-skip

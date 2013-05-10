@@ -129,70 +129,8 @@ div.premiumSelect {
         }
 
     }
-
-    &.olive {
-        height:         @olive-selectHeight;
-        min-width:      200px;
-        width:          130px;
-
-        .selectBox {
-            border:         @olive-border;
-            .border-radius(@olive-borderRadius);
-
-            line-height:    @olive-selectHeight;
-            text-align:     left;
-            padding-left:   10px;
-            font-family:    @olive-font;
-            font-size:      @olive-fontSize;
-            color:          @olive-fontColor;
-
-            background-image: url(../img/olive-select-arrows.png);
-            background-position: top right;
-            background-repeat: no-repeat;
-        }
-
-        .dropDown {
-            .border-radius(@olive-borderRadius);
-            background:     @olive-background;
-            width:          110%;
-        }
-
-        li {
-            height:         @olive-liHeight;
-            font-family:    @olive-font;
-            font-size:      @olive-fontSize;
-            color:          @olive-fontColor;
-            padding:        0 5px;
-   
-            &.first {
-                .border-radius-top(@olive-borderRadius);
-            }
-
-            &.last {
-                .border-radius-bottom(@olive-borderRadius);
-            }
-
-            &:hover {
-                background:     @olive-hoverBackground;
-            }
-
-            &.active {
-                background:     @olive-activeBackground;     
-            }
-
-            span {
-                &.line-1 {
-                    padding-top:     5px;
-                    font-weight:    bold;
-                    color:          #000;
-                }
-
-                &.line-2 {
-                    font-weight:    normal;
-                    color:          #999;
-                    font-size:      80%;
-                }
-            }
-        }
-    }
 }
+
+/* Import Themes */
+@import "olive.less";
+@import "orange-click.less";

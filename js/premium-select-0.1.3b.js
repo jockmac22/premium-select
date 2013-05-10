@@ -32,7 +32,8 @@ $.premiumselect = {
             has_icon: false,
             select_width: null,
             list_width: null,
-            theme: null
+            theme: null,
+            hover_activated: false
         };
 
         var dataOpts = $.premiumselect.extractDataAttributes(select);
@@ -78,6 +79,9 @@ $.premiumselect = {
         if (select.data('theme')){
             data.theme = select.data('theme');
         }
+        if (select.data('hover-activated')){
+            data.hover_activated = (select.data('hover-activated') === 1);
+        }
 
         return data;
     },
@@ -85,7 +89,7 @@ $.premiumselect = {
     // Generate the HTML interface for the select box and drop down list.
     buildInterface: function(select, opts){
         // Build some DOM elements to represent the select drop-down.
-        var id;
+        var id = select.attr('id') ? select.attr('id') : "ps" + parseInt(Math.random() * 1000000, 10);
         var has_icon = opts.has_icon;
         var select_width = opts.select_width;
         var list_width = opts.list_width;
@@ -93,13 +97,13 @@ $.premiumselect = {
 
         var container = $('<div>');
         container.attr('width', select.outerWidth());
-        container.attr('id', (id=select.attr('id')) ? id : null);
+        container.attr('id', id);
         container.addClass('premiumSelect');
         if (theme){ container.addClass(theme); }
         if (select_width){ container.attr('style', 'min-width: ' + select_width); }
-        container.html('<div class="selectBox"></div>');
+        container.html('<div id="' + id + '_selectBox" class="selectBox"></div>');
 
-        var dropDown = $('<ul>');
+        var dropDown = $('<ul id="' + id + '_list">');
         dropDown.addClass('dropDown');
         if (list_width){ dropDown.attr('style', 'width: ' + list_width); }
 
@@ -107,8 +111,9 @@ $.premiumselect = {
         selectBox.attr('class', 'selectBox ' + select.attr('class'));
         selectBox.removeClass('premiumSelect');
 
-        select.find('option').each(function(){
+        select.find('option').each(function(idx){
             var option = $(this);
+            var option_id = id + '_option_' + idx;
             var disabled = (option.data('disabled') === 1);
             var clickable = option.data('prevent-click') !== 1;
 
@@ -127,14 +132,16 @@ $.premiumselect = {
 
             if (has_icon){
                 html += (icon=option.data('icon')) ?
-                        '<img src="' + icon + '" />' : '';
+                        '<img id="' + id + '_icon" src="' + icon + '" />' : '';
             }
 
             line = 1;
             lineText = (lt=option.data('line-' + line)) ? lt : null;
+            var line_id = '';
             while (lineText) {
                 iconClass = has_icon ? " has-icon" : '';
-                html += '<span class="line-' + line + iconClass + '">' + lineText + '</span>';
+                line_id = option_id + "_option_line_" + line;
+                html += '<span id="' + line_id + '" class="line-' + line + iconClass + '">' + lineText + '</span>';
                 line++;
                 lineText = (lt=option.data('line-' + line)) ? lt : null;
             }
@@ -143,7 +150,8 @@ $.premiumselect = {
             // as a default line 1.
             if (!lineText && line === 1){
                 iconClass = has_icon ? " has-icon" : '';
-                html += '<span class="line-' + line + iconClass + '">' + option.text() + '</span>';
+                line_id = option_id + "_option_line_" + line;
+                html += '<span id="' + line_id + '" class="line-' + line + iconClass + '">' + option.text() + '</span>';
             }
 
             // Creating a dropdown item according to the
@@ -152,13 +160,13 @@ $.premiumselect = {
             var dtf = select.find('option[data-skip!=1]')[0];
             var dtl = select.find('option[data-skip!=1]:last')[0];
             var liFirstLast = dto === dtf ? ' first' :
-                            (dto === dtl ? ' last' : null);
-            var liActive = option.attr('selected') ? ' active' : null;
-            var liDisabled = disabled ? ' disabled' : null;
+                            (dto === dtl ? ' last' : '');
+            var liActive = option.attr('selected') ? ' active' : '';
+            var liDisabled = disabled ? ' disabled' : '';
             var liClass = option.attr('class') + ' ' + liFirstLast + liActive +
                     liDisabled;
 
-            var li = $('<li>');
+            var li = $('<li id="' + option_id + '">');
             li.attr('class', liClass);
             li.removeClass('premiumSelect');
             li.html(html);
@@ -258,6 +266,20 @@ $.premiumselect = {
 
         // If we click anywhere on the page, while the
         // dropdown is shown, it is going to be hidden:
+
+        if (opts.hover_activated){
+            container
+                .mouseover(function(){
+                    var $this = $(this);
+                    var dd = $.premiumselect.getDropDown($this);
+                    dd.trigger('show');
+                })
+                .mouseleave(function(){
+                    var $this = $(this);
+                    var dd = $.premiumselect.getDropDown($this);
+                    dd.trigger('hide');
+                });
+        }
 
         $(document).click(function(){
             $('.dropDown').trigger('hide');
